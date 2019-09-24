@@ -1,0 +1,55 @@
+sitemap smarthome label="Projeto - Sistema Sensorial"{
+Frame label="Bem vindo ao sistema de controlo sensorial da sua casa"{
+      Text item=Date icon="time"}
+      Frame label="Por favor escolha a divisao que pretende controlar"{
+
+	Text label="Sala" icon="screen"{
+	    Frame label="Data"{
+	    	  Text item=Date icon="time"}
+	    Frame label="Consumo" {
+		  Text item=Consumo_Sala icon="energy"
+		  Switch item=Tomada_Consumo
+		  Text label="Grafico com consumo energia eletrica (Wh)" icon="chart"{
+		  Chart item=Consumo_Sala period=24h refresh=60000 service="mysql" legend=true}
+	    }
+	    Frame label="Sensor Porta"{
+	      	  Text item=Porta_Sala
+		  Text item=Bateria_Porta icon="batterylevel"
+	    }
+	    Frame label="Movimento"{ 
+	          Text item=Temperatura_Olho icon="temperature"
+		  Text item=Movimento_Sala icon="motion"
+		  Text item=Luz_Sala icon="light"
+	      	  Text item=Bateria_Olho icon="batterylevel"
+		  Text label="Grafico com periodos movimento" icon="chart"{
+		  Chart item=Movimento_Sala refresh=60000 period=24h service="mysql" visibility=[Movimento_Sala_Period==0, Movimento_Sala_Period=="Uninitialized"]}
+		  Text label="Grafico com evolucao da temperatura" icon="chart"{
+		  Chart item=Temperatura_Olho refresh=60000 period=24h service="mysql" visibility=[Temperatura_Olho_Period==0, Temperatura_Olho_Period=="Uninitialized"]}
+	    }
+	    Frame label="Fumo" {
+	      	  Text item=Deteta_Fumo icon="smoke"
+		  Text item=Deteta_Calor icon="fire"
+		  Text item=Temperatura_Fumo icon="temperature"
+		  Text item=Bateria_Fumo icon="batterylevel"
+	    }
+	}
+
+
+	Text label="Quarto principal" icon="bedroom"{
+	      Frame label="Sensor 1"{
+	      	    Text label="Teste"
+	      }
+	 }
+	Text label="Cozinha" icon="kitchen"{
+	      Frame label="Sensor 2"{
+	      	    Text label="Teste"}
+	}
+	Text label="Quarto 2" icon="bedroom"{
+	     Frame label="Sensor 3"{
+	     	   Text label="..."
+		   }
+	}
+	}
+}
+
+	   

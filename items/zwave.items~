@@ -1,0 +1,40 @@
+Group ROS (All)
+String ROS_Status "ROS [%s]"
+
+DateTime Date "A data actual [%1$tA, %1$td/%1$tm/%1$tY %1$tH:%1$tM]"
+{channel="ntp:ntp:demo:dateTime"}
+
+Number Consumo_Sala "Consumo na Sala [%.1f kWh]" (Sala, Consumo, ROS)
+Switch Tomada_Consumo (Sala, Tomada_Consumo, ROS)
+
+Contact Porta_Sala "Porta[%s]"(Sala, Porta, ROS)
+{ channel="zwave_device_16262a46308_node5_sensor_door"}
+Number Bateria_Porta "Porta: Bateria [%d %%]" (Sala, Bateria, ROS)
+{ zwave="5:command=BATTERY"}
+
+
+Switch Movimento_Sala "Movimento: [%s]" (Sala, Movimento, ROS)
+{ zwave="4:command=sensor_multilevel,sensor_type=4"}
+
+Number Luz_Sala "Luminosidade: [%.1f Lux]" (Sala, Luz, ROS)
+{ zwave="4:command=sensor_multilevel,sensor_type=3"}
+
+Number Bateria_Olho "Bateria Movimento: [%d %%]" (Sala, Batolho, ROS)
+{ zwave="4:command=sensor_multilevel,sensor_type=6"}
+
+Number Temperatura_Olho "Temperatura: [%.1f C]" (Sala, Tampolho, ROS)
+{ zwave="4:command=sensor_multilevel,sensor_type=1"}
+
+
+Switch Deteta_Fumo "Alarme Fumo: [%s]" (Sala, DetetorFumo, ROS)
+{ zwave="6:command=sensor_alarm,alarm_type=1" }
+
+Switch Deteta_Calor "Alarme Calor: [%s]" (Sala, DetetorCalor, ROS)
+{ zwave="6:command=sensor_alarm,alarm_type=4" }
+
+Number Temperatura_Fumo "Temperatura smoke detetor: [%.1f C]" (Sala, TempFumo, ROS)
+{ zwave="6:command=sensor_multilevel,sensor_type=1"}
+
+Number Bateria_Fumo "Bateria : [%d %%]" (Sala, Batfumo, ROS)
+{ zwave="6:command=battery"}
+

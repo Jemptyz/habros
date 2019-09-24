@@ -1,0 +1,3 @@
+rule "Test: current time"
+when
+	Item 

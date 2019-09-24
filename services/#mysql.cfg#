@@ -1,0 +1,22 @@
+cd# the database url like 'jdbc:mysql://<host>:<port>/<database>' (without quotes)
+url=jdbc:mysql://127.0.0.1:3306/OpenHAB
+#url=https://projectos.est.ipcb.pt/rowes
+
+# the database user
+user=jmendes
+#user=rowes
+
+# the database password
+password=jmendes
+#password=ibyeechkukeakemu
+
+# the reconnection counter
+reconnectCnt=1
+
+# the connection timeout (in seconds)
+#waitTimeout=
+
+# Use MySQL Server time to store item values (=false) or use openHAB Server time (=true).
+# For new installations, its recommend to set "localtime=true".
+# (optional, defaults to false)
+localtime=false
